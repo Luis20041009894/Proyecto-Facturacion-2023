@@ -33,9 +33,9 @@ namespace Vista
             DeshabilitarControl();
             LimpiarControles();
         }
-        private void HabilitarControl()
+        private void HabilitarControl(Boolean modificando = false)
         {
-            IdTextBox.Enabled = true;
+            IdTextBox.Enabled = !modificando;
             NombreTextBox.Enabled = true;
             TelefonoTextBox.Enabled = true;
             CorreoTextBox.Enabled = true;
@@ -84,7 +84,7 @@ namespace Vista
                 DireccionTextBox.Text = ClienteDataGridView.CurrentRow.Cells["Direccion"].Value.ToString();
                 EstadoActivoCheckBox.Checked = Convert.ToBoolean(ClienteDataGridView.CurrentRow.Cells["EstadoActivo"].Value);
 
-                HabilitarControl();
+                HabilitarControl(true);
             }
             else
             {
